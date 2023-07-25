@@ -2,6 +2,8 @@ import random
 from sys import exit
 import numpy as np
 import pygame as pg
+import json
+import os
 
 
 class Grid():
@@ -21,6 +23,11 @@ class Grid():
         score_surf = font.render(f'Score: {self.score}', False, grey)
         score_rect = score_surf.get_rect(left = 20, top = self.top_panal_height / 2 - 20)
         screen.blit(score_surf, score_rect)
+    
+    def display_highest_score(self, highest_score):
+        highest_score_surf = font.render(f'Highest score: {highest_score}', False, grey)
+        highest_score_rect = highest_score_surf.get_rect(left = 20, top = self.top_panal_height / 2 - 20)
+        screen.blit(highest_score_surf, highest_score_rect)
     
     def display_next_block(self, next_block, next_color):
         side_length = 20
@@ -338,6 +345,20 @@ def restart():
     next_block = grid.next_block()
     next_color = grid.next_color()
 
+def update_highest_score():
+    global highest_score
+    if not os.path.exists('highest_score.json'):
+        with open('highest_score.json', 'w') as f:
+            json.dump(0, f)
+    with open('highest_score.json', 'r') as f:
+        highest_score = json.load(f)
+    if highest_score < grid.score:
+        highest_score = grid.score
+        with open('highest_score.json', 'w') as f:
+            json.dump(highest_score, f)
+    else:
+        with open('highest_score.json', 'r') as f:
+            highest_score = json.load(f)
 
 pg.init()
 screen_width = 370
@@ -348,7 +369,7 @@ pg.display.set_caption('Tetris')
 clock = pg.time.Clock()
 fps = 60
 font_size = 25
-font = pg.font.Font('E:/Coding Projects/Python Projects/Tetris/roboto/Roboto-Bold.ttf', font_size)
+font = pg.font.Font('Fonts/Roboto-Bold.ttf', font_size)
 
 # Colors
 white = (250, 250, 250)
@@ -449,11 +470,12 @@ while True:
         pg.display.flip()
         clock.tick(fps)
     elif game_over:
+        update_highest_score()
         screen.fill(bg_color)
         for block in blocks:
             grid.display_block(block.grid, block.color)
         grid.display_grid()
-        grid.display_score()
+        grid.display_highest_score(highest_score)
         pg.draw.rect(screen, black, [0, int(screen_height/2) - 50, screen_width, 100])
         game_over_text_surf = font.render('Game Over', False, red)
         game_over_text_rect = game_over_text_surf.get_rect(center = ((int(screen_width/2)), int(screen_height/2)-20))
@@ -464,9 +486,10 @@ while True:
         pg.display.flip()
         clock.tick(fps)
     elif starting:
+        update_highest_score()
         screen.fill(bg_color)
         grid.display_grid()
-        grid.display_score()
+        grid.display_highest_score(highest_score)
         pg.draw.rect(screen, black, [0, int(screen_height/2) - 50, screen_width, 100])
         text_surf = font.render('Press Enter to Play', False, light_blue)
         text_rect = text_surf.get_rect(center = ((int(screen_width/2)), int(screen_height/2)))
