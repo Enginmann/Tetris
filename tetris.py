@@ -1,6 +1,6 @@
 # This code works.
 # But it contains some bugs.
-# However, it they don't affect the gameplay.
+# However, they don't affect the gameplay.
 
 import random
 from sys import exit
