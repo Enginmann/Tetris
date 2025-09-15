@@ -7,7 +7,6 @@ A classic Tetris implementation built with Python and Pygame featuring smooth ga
 <p align="center">
   <img width="300" alt="image" src="https://github.com/user-attachments/assets/5faedd53-1934-4d9c-b917-413c63a02333"/>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img width="300" alt="image" src="https://github.com/user-attachments/assets/bbf292cd-6564-4162-b327-b16dfc11c298" />
 </p>
 
