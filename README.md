@@ -2,6 +2,16 @@
 
 A classic Tetris implementation built with Python and Pygame featuring smooth gameplay, shadow blocks, increasing difficulty, and persistent high score tracking.
 
+## 📸 Screenshot
+
+<p align="center">
+  <img width="300" alt="image" src="https://github.com/user-attachments/assets/5faedd53-1934-4d9c-b917-413c63a02333"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img width="300" alt="image" src="https://github.com/user-attachments/assets/bbf292cd-6564-4162-b327-b16dfc11c298" />
+</p>
+
+
 ## ✨ Features
 
 - **🧱 Classic Tetris Gameplay**: Drop and rotate falling blocks to create complete rows
@@ -30,6 +40,12 @@ pip install pygame numpy
 
 3. ✅ Ensure you have the font file `Roboto-Bold.ttf` in the correct path:
    - Update the font path in the code (line with `font = pg.font.Font(...)`) to match your font location
+4. 🖥️ Screen Adjustment (Optional): If the game window doesn't fit your screen properly, you can adjust the height by modifying this line in the code:
+
+   ```python
+   screen_height = 2 * screen_width + 100  # change the screen height to fit your screen
+   ```
+   - Decrease the value for a shorter window
 
 ## 🎯 How to Play
 
@@ -81,7 +97,6 @@ The game automatically increases in difficulty as your score rises:
 - **📊 Score**: Current game score (top-left during play, centered when game over)
 - **🔮 Next Block**: Preview of the upcoming piece (top-right)
 - **🏆 Highest Score**: Your personal best score
-- **📋 Grid**: 10×20 playing field with clear boundaries
 - **👻 Shadow Block**: Translucent preview showing drop location
 
 ## 📁 File Structure
